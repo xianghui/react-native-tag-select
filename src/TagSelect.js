@@ -26,6 +26,21 @@ class TagSelect extends React.Component {
     return items;
   }
 
+  forceSelectItem = (item) => {
+    const selectedItems = Object.assign(this.state.selectedItems, {});
+    const found = this.state.selectedItems[item[this.props.keyAttr]];
+
+    if (!found) {
+      if (this.props.max && this.totalSelected >= this.props.max) {
+        return this.props.onMaxError();
+      }
+
+      selectedItems[item[this.props.keyAttr]] = item;
+    }
+
+    this.setState({ selectedItems });
+  }
+
   handleSelectItem = (item) => {
     const selectedItems = Object.assign(this.state.selectedItems, {});
     const found = this.state.selectedItems[item[this.props.keyAttr]];
@@ -41,7 +56,7 @@ class TagSelect extends React.Component {
     }
 
     this.setState({ selectedItems });
-    
+
     if (this.props.onItemPress) {
       return this.props.onItemPress(item);
     }
