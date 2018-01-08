@@ -1,14 +1,14 @@
 # react-native-tag-select
 
-[![npm version](https://badge.fury.io/js/react-native-tag-select.svg)](https://badge.fury.io/js/react-native-tag-select)
-
-A simple tag component to act as radio button / checkbox
+A simple tag component to act as radio button / checkbox (minor enhancement to the original react-native-tag-select npm package)
 
 ## Features
 
 - Max itens selected
 - Plain simple and flexible API
 - Listeners for actions
+- Force select a tag (rather than toggle the state) (enhancement)
+- Define initial selection data (enhancement)
 
 ## Demo
 
@@ -22,11 +22,7 @@ or just check the image bellow:
 
 ## Setup
 
-`yarn add react-native-tag-select`
-
-or 
-
-`npm install --save react-native-tag-select`
+`npm install --save https://github.com/xianghui/react-native-tag-select.git`
 
 ## Usage
 
@@ -118,7 +114,7 @@ const styles = StyleSheet.create({
   },
   item: {
     borderWidth: 1,
-    borderColor: '#333',    
+    borderColor: '#333',
     backgroundColor: '#FFF',
   },
   label: {
@@ -147,4 +143,5 @@ const styles = StyleSheet.create({
 | itemStyleSelected | any | {} | Style of item container selected |
 | itemLabelStyle | any | {} | Style of item label |
 | itemLabelStyleSelected | any | {} | Style of item label selected |
+| selectedData | array | [] | Data to do initial selection (format is similar to data) |
 

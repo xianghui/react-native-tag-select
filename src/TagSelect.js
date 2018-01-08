@@ -8,9 +8,29 @@ import {
 import TagSelectItem from './TagSelectItem';
 
 class TagSelect extends React.Component {
-  state = {
-    selectedItems: {},
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      selectedItems: this.updateSelection(props),
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const selectedItems = this.updateSelection(nextProps);
+    this.setState({
+      selectedItems,
+    })
+  }
+
+  updateSelection(props){
+    const selectedItems = {};
+    props.selectedData.forEach(item => {
+      selectedItems[item[this.props.keyAttr]] = item;
+    })
+
+    return selectedItems
+  }
 
   get totalSelected() {
     return Object.keys(this.state.selectedItems).length;
@@ -66,7 +86,7 @@ class TagSelect extends React.Component {
     return (
       <View style={styles.list}>
         {this.props.data.map((i) => {
-          return(
+          return (
             <TagSelectItem
               {...this.props}
               label={i[this.props.labelAttr]}
@@ -74,7 +94,7 @@ class TagSelect extends React.Component {
               onPress={this.handleSelectItem.bind(this, i)}
               selected={this.state.selectedItems[i[this.props.keyAttr]] && true}
             />
-            )
+          )
         })}
       </View>
     );
@@ -92,6 +112,7 @@ TagSelect.propTypes = {
   itemStyleSelected: PropTypes.any,
   itemLabelStyle: PropTypes.any,
   itemLabelStyleSelected: PropTypes.any,
+  selectedData: PropTypes.array,
 };
 
 TagSelect.defaultProps = {
@@ -105,6 +126,7 @@ TagSelect.defaultProps = {
   itemStyleSelected: {},
   itemLabelStyle: {},
   itemLabelStyleSelected: {},
+  selectedData: [],
 };
 
 const styles = StyleSheet.create({
