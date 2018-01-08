@@ -145,3 +145,25 @@ const styles = StyleSheet.create({
 | itemLabelStyleSelected | any | {} | Style of item label selected |
 | selectedData | array | [] | Data to do initial selection (format is similar to data) |
 
+
+# Methods
+To access tag select methods you must get the ref property first.
+
+
+- Get the number of itens selected. Returns a boolean.
+```javascript
+this.ref.totalSelected
+```
+
+
+- Get itens selected. Returns an array.
+```javascript
+this.ref.itemsSelected
+```
+
+
+- "Force" Select a tag (select a tag regardless whether it was previously selected)
+```javascrip
+//format of item is similar to a single item in the data props
+this.ref.forceSelectItem(item)
+```
