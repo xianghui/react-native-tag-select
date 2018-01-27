@@ -139,11 +139,13 @@ const styles = StyleSheet.create({
 | max | number | null | Max itens permitted |
 | onMaxError | func | null | Callback after user reach max itens |
 | onItemPress | func | null | Callback after user press on item |
+| onItemLongPress | func | null | Callback after user long press on item (e.g. can be used to trigger a change of color) |
 | itemStyle | any | {} | Style of item container |
 | itemStyleSelected | any | {} | Style of item container selected |
 | itemLabelStyle | any | {} | Style of item label |
 | itemLabelStyleSelected | any | {} | Style of item label selected |
 | selectedData | array | [] | Data to do initial selection (format is similar to data) |
+| colors | any | {} | color associative array with label to color mapping tag with the some_tag label will be having color_value background color (e.g. { 'some_tag' : color_value}) |
 
 
 # Methods

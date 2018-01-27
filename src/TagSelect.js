@@ -108,11 +108,13 @@ TagSelect.propTypes = {
   max: PropTypes.number,
   onMaxError: PropTypes.func,
   onItemPress: PropTypes.func,
+  onItemLongPress: PropTypes.func,
   itemStyle: PropTypes.any,
   itemStyleSelected: PropTypes.any,
   itemLabelStyle: PropTypes.any,
   itemLabelStyleSelected: PropTypes.any,
   selectedData: PropTypes.array,
+  colors: PropTypes.object,
 };
 
 TagSelect.defaultProps = {
@@ -122,11 +124,13 @@ TagSelect.defaultProps = {
   max: null,
   onMaxError: null,
   onItemPress: null,
+  onItemLongPress: null,
   itemStyle: {},
   itemStyleSelected: {},
   itemLabelStyle: {},
   itemLabelStyleSelected: {},
   selectedData: [],
+  colors: {},
 };
 
 const styles = StyleSheet.create({
