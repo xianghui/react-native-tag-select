@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 
 const TagSelectItem = (props) => {
-  console.log('props.colors', props.colors);
   const innerStyle = [
     ([styles.inner].concat(props.itemStyle)),
     props.selected && ([styles.innerSelected].concat(props.itemStyleSelected)),
